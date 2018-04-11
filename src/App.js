@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
@@ -13,9 +14,10 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		fetch("https://www.nordstromrack.com/api/search2/catalog/search?query=summer")
-			.then(response => response.json())
-    	.then(json => console.log(json));
+    const url = "/call";
+    axios.get(url)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
 	}
 
   render() {
